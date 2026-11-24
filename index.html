@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Srikanth Rasanolla</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root { --photo: url("photo.png"); }
+/* Layout: ledger-style single page. Hero shows a live maker-checker pipeline; skills section runs live SQL, Python and Power BI demos; timeline closes on a hire panel. */
+:root {
+  --bg: #F2F5F7;
+  --surface: #FFFFFF;
+  --ink: #0D1B2A;
+  --muted: #51606F;
+  --line: #D5DDE4;
+  --accent: #0A7B83;
+  --accent2: #D9780F;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #DDF1F2;
+  --glow: rgba(10, 123, 131, .16);
+  --blob1: rgba(10, 123, 131, .24);
+  --blob2: rgba(217, 120, 15, .20);
+  --term-bg: #0F1B28;
+  --term-fg: #D5E3EE;
+  --term-mute: #7F95A8;
+  --term-line: #20344A;
+  --term-accent: #4CC9C0;
+  --term-accent-d: #1C7F88;
+  --term-amber: #F4B860;
+  --term-blue: #8FB8FF;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B141D; --surface: #121E2A; --ink: #E6EEF4; --muted: #93A4B3;
+    --line: #25384A; --accent: #4CC9C0; --accent2: #F4B860; --accent-ink: #05222A; --accent-soft: #12323A;
+    --glow: rgba(76, 201, 192, .16); --blob1: rgba(76, 201, 192, .16); --blob2: rgba(244, 184, 96, .12);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B141D; --surface: #121E2A; --ink: #E6EEF4; --muted: #93A4B3;
+  --line: #25384A; --accent: #4CC9C0; --accent2: #F4B860; --accent-ink: #05222A; --accent-soft: #12323A;
+  --glow: rgba(76, 201, 192, .16); --blob1: rgba(76, 201, 192, .16); --blob2: rgba(244, 184, 96, .12);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { background: var(--bg); color: var(--ink); font: 16px/1.6 var(--font-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1080px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font: 500 12px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+.grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+header.top::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform-origin: left; transform: scaleX(var(--p, 0)); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 700 17px var(--font-display); }
+.mark b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font: 800 14px var(--font-display); letter-spacing: .02em; }
+nav { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+nav a { text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 14px; color: var(--muted); }
+nav a:hover { color: var(--ink); background: var(--accent-soft); }
+nav a.cta { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+nav a.cta:hover { filter: brightness(1.08); color: var(--accent-ink); }
+.theme { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; display: grid; place-items: center; margin-left: 4px; }
+.theme:hover { border-color: var(--accent); color: var(--accent); }
+
+/* hero */
+.hero { position: relative; overflow: hidden; padding-block: 60px 72px; }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; filter: blur(64px); pointer-events: none; z-index: 0; }
+.hero::before { width: 440px; height: 440px; background: var(--blob1); top: -140px; left: -120px; animation: drift1 16s ease-in-out infinite alternate; }
+.hero::after { width: 400px; height: 400px; background: var(--blob2); right: -100px; bottom: -160px; animation: drift2 19s ease-in-out infinite alternate; }
+.hero-grid { position: absolute; inset: 0; z-index: 0; background-image: radial-gradient(var(--line) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: linear-gradient(#000 30%, transparent); mask-image: linear-gradient(#000 30%, transparent); }
+.hero > .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+.hero > .wrap > * { min-width: 0; }
+.hello { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font: 500 12px var(--font-mono); letter-spacing: .06em; color: var(--muted); }
+.hello i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1.6s infinite; }
+.hero h1 { font-size: clamp(40px, 6.4vw, 72px); font-weight: 800; letter-spacing: -.025em; margin-block: 20px 16px; }
+.swap { display: inline-block; transition: opacity .25s, transform .25s; padding-bottom: .06em; }
+.swap.out { opacity: 0; transform: translateY(8px); }
+.hero .role { font: 500 14px/1.6 var(--font-mono); color: var(--muted); }
+.hero .lede { margin-top: 22px; max-width: 52ch; font-size: 18px; color: var(--muted); }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 10px; font: 600 15px var(--font-body); text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink); background: transparent; transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: linear-gradient(135deg, var(--accent), #12A0A8); border-color: transparent; color: var(--accent-ink); box-shadow: 0 10px 24px -12px var(--accent); }
+.btn.primary::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent); transform: skewX(-20deg); }
+.btn.primary:hover::after { animation: shine .8s; }
+.mini { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; font: 500 13px var(--font-mono); color: var(--muted); }
+.mini span::before { content: "✓ "; color: var(--accent); }
+
+.case-wrap { position: relative; }
+.case { position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: 0 24px 50px -28px rgba(13, 27, 42, .5); }
+.case-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; font: 500 12px var(--font-mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.case-head .live { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); }
+.case-head .live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1.6s infinite; }
+.case-id { font: 500 22px var(--font-mono); margin: 14px 0 4px; }
+.case-sub { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+.meter { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin-bottom: 12px; }
+.meter i { display: block; height: 100%; width: 40%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .6s cubic-bezier(.3, .7, .2, 1); }
+.stages { list-style: none; margin: 0; padding: 0; }
+.stages li { position: relative; display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: center; padding: 9px 0; font-size: 15px; color: var(--muted); transition: color .3s; }
+.stages li::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); justify-self: center; z-index: 1; transition: background .3s, border-color .3s; }
+.stages li::after { content: ""; position: absolute; left: 10px; top: 28px; bottom: -9px; width: 2px; background: var(--line); }
+.stages li:last-child::after { display: none; }
+.stages li .t { font: 400 12px var(--font-mono); opacity: 0; transition: opacity .3s; }
+.stages li.done { color: var(--ink); }
+.stages li.done::before { background: var(--accent); border-color: var(--accent); }
+.stages li.done .t { opacity: 1; color: var(--accent); }
+.stages li.now { color: var(--ink); font-weight: 600; }
+.stages li.now::before { border-color: var(--accent); animation: ring 1.4s infinite; }
+.chipf { position: absolute; z-index: 2; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font: 500 12px var(--font-mono); box-shadow: 0 10px 22px -12px rgba(13, 27, 42, .45); animation: bob 4.6s ease-in-out infinite alternate; }
+.chipf b { color: var(--accent); }
+.chipf.a { top: -16px; right: 18px; }
+.chipf.b { top: 34%; right: -8px; animation-delay: -1.4s; }
+.chipf.c { left: -8px; bottom: 26%; animation-delay: -2.6s; }
+.chipf.d { bottom: -16px; right: 40px; animation-delay: -.8s; }
+.chipf.e { top: -16px; left: 28px; animation-delay: -3.2s; }
+
+/* ticker */
+.ticker { overflow: hidden; border-block: 1px solid var(--line); background: var(--surface); }
+.ticker-track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-track span { padding: 14px 26px; font: 500 13px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.ticker-track span::after { content: "/"; margin-left: 52px; color: var(--accent); }
+.ticker-track span.hl { color: var(--ink); font-weight: 500; }
+
+/* stats */
+.stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 30px 16px; border-left: 1px solid var(--line); }
+.stat:first-child { border-left: 0; padding-left: 0; }
+.stat strong { display: block; font: 800 44px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.stat span { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); }
+
+/* sections */
+section.block { padding-block: 92px 0; }
+.sec-head { display: grid; gap: 14px; margin-bottom: 36px; }
+.sec-head h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -.015em; }
+
+.about { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; }
+.about > * { min-width: 0; }
+.about p + p { margin-top: 16px; }
+.about p { font-size: 17px; }
+dl.facts { margin: 0; border-top: 1px solid var(--line); align-content: start; }
+.facts div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-weight: 500; text-align: right; }
+.duties { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.duties > * { min-width: 0; }
+.duty { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 20px; }
+.duty .ico { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; transition: transform .3s; }
+.duty:hover .ico { transform: rotate(-8deg) scale(1.1); }
+.duty h3 { font-size: 18px; font-weight: 700; }
+.duty p { margin-top: 6px; font-size: 14px; color: var(--muted); }
+
+.spot { position: relative; }
+.spot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .25s; background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 70%); }
+.spot:hover::after { opacity: 1; }
+
+/* skills */
+.skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.skill-grid > * { min-width: 0; }
+.tool { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px 22px 22px; display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
+.tool:hover { transform: translateY(-4px); border-color: var(--accent); }
+.tool-top { display: flex; align-items: center; gap: 14px; }
+.tool .ico { width: 44px; height: 44px; flex: none; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+.tool h3 { font-size: 26px; font-weight: 700; }
+.tool > p { margin-top: 12px; color: var(--muted); font-size: 15px; min-height: 3.2em; }
+.demo { margin-top: 16px; background: var(--term-bg); color: var(--term-fg); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; position: relative; z-index: 1; }
+.demo-top { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--term-line); font: 500 11px var(--font-mono); color: var(--term-mute); }
+.demo-top i { width: 9px; height: 9px; border-radius: 50%; background: var(--term-line); }
+.demo-top i:nth-child(1) { background: #E5736B; }
+.demo-top i:nth-child(2) { background: var(--term-amber); }
+.demo-top i:nth-child(3) { background: var(--term-accent); }
+.demo-top span { margin-left: 6px; flex: 1; }
+.demo-top button { font: 500 11px var(--font-mono); color: var(--term-accent); background: transparent; border: 1px solid var(--term-line); border-radius: 6px; padding: 3px 8px; cursor: pointer; }
+.demo-top button:hover { border-color: var(--term-accent); }
+.demo-body { padding: 14px; font: 12.5px/1.65 var(--font-mono); overflow-x: auto; min-height: 232px; }
+.ln { display: block; white-space: pre; width: max-content; max-width: 100%; }
+.k { color: var(--term-accent); } .s { color: var(--term-amber); } .n { color: var(--term-blue); } .f { color: var(--term-blue); } .c { color: var(--term-mute); }
+.tbl { margin-top: 10px; border-top: 1px dashed var(--term-line); padding-top: 8px; display: grid; gap: 2px; }
+.tbl div { display: grid; grid-template-columns: 1.7fr .7fr .9fr; gap: 8px; font-size: 12px; }
+.tbl div:first-child { color: var(--term-mute); }
+.tbl div span:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.note { margin-top: 10px; font-size: 11px; color: var(--term-mute); }
+.caret { display: inline-block; width: 7px; height: 14px; background: var(--term-accent); vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+.pipe { color: var(--term-mute); }
+.demo.play .ln { animation: typeln .8s steps(28) backwards; animation-delay: calc(var(--i) * .7s); }
+.demo.play .out { animation: fadeup .5s ease backwards; animation-delay: calc(var(--t) * 1s); }
+.kpi { display: flex; align-items: center; gap: 14px; }
+.kpi svg { width: 84px; height: 84px; flex: none; }
+.kpi .track { stroke: var(--term-line); }
+.kpi .val { stroke: var(--term-accent); stroke-dasharray: 276.46; stroke-dashoffset: 11.06; transform: rotate(-90deg); transform-origin: 55px 55px; }
+.demo.play .kpi .val { animation: fillring 1.4s cubic-bezier(.3, .7, .2, 1) backwards; }
+.kpi strong { display: block; font: 800 26px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.kpi span { font-size: 12px; color: var(--term-mute); }
+.bars { margin-top: 14px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; align-items: end; border-bottom: 1px solid var(--term-line); }
+.bar { height: var(--h); border-radius: 5px 5px 0 0; background: linear-gradient(180deg, var(--term-accent), var(--term-accent-d)); transform-origin: bottom; }
+.bar.hi { background: linear-gradient(180deg, var(--term-amber), #C77A14); }
+.demo.play .bar { animation: grow .9s cubic-bezier(.2, .8, .2, 1) backwards; animation-delay: calc(var(--k) * .12s); }
+.months { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 6px; font-size: 11px; text-align: center; color: var(--term-mute); }
+
+.domain { margin-top: 28px; display: grid; grid-template-columns: 180px 1fr; gap: 12px 24px; border-top: 1px solid var(--line); padding-top: 24px; }
+.domain > * { min-width: 0; }
+.domain h3 { font: 500 12px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-top: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; transition: background .15s, border-color .15s, transform .15s; }
+.chip:hover { background: var(--accent-soft); border-color: var(--accent); transform: translateY(-2px); }
+
+/* experience */
+.path { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 40px; padding-top: 28px; }
+.path::before, .path::after { content: ""; position: absolute; left: 8px; right: 8px; top: 8px; height: 2px; }
+.path::before { background: var(--line); }
+.path::after { background: linear-gradient(90deg, var(--accent), var(--accent2)); transform-origin: left; transform: scaleX(0); transition: transform 1.6s cubic-bezier(.3, .7, .2, 1); }
+.path.in::after { transform: scaleX(1); }
+.pstep { position: relative; min-width: 0; }
+.pstep::before { content: ""; position: absolute; left: 0; top: -28px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.pstep:last-child::before { background: var(--accent); animation: ring 1.6s infinite; }
+.pstep b { display: block; font: 800 24px/1 var(--font-display); }
+.pstep span { display: block; margin-top: 4px; font-weight: 600; color: var(--accent); }
+.pstep i { display: block; font-style: normal; font-size: 13px; color: var(--muted); }
+
+.timeline { position: relative; display: grid; gap: 28px; padding-left: 34px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.progress { position: absolute; left: 7px; top: 8px; width: 2px; height: 0; background: linear-gradient(180deg, var(--accent), var(--accent2)); }
+.job { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px; min-width: 0; transition: border-color .2s, transform .2s; }
+.job:hover { border-color: var(--accent); transform: translateX(4px); }
+.job::before { content: ""; position: absolute; left: -34px; top: 30px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); z-index: 1; }
+.job.now::before { background: var(--accent); animation: ring 1.6s infinite; }
+.job-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; align-items: baseline; }
+.job h3 { font-size: 24px; font-weight: 700; }
+.job .org { color: var(--accent); font-weight: 600; margin-top: 4px; }
+.job .when { font: 500 13px var(--font-mono); color: var(--muted); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); }
+.job ul { margin: 18px 0 0; padding-left: 18px; display: grid; gap: 8px; }
+.job li { color: var(--muted); font-size: 15.5px; }
+.job li::marker { color: var(--accent); }
+.edu { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding: 18px 26px; border: 1px dashed var(--line); border-radius: 14px; }
+.edu strong { font-family: var(--font-display); font-size: 18px; }
+.edu span { color: var(--muted); font-size: 15px; }
+
+/* hire */
+.hire { position: relative; overflow: hidden; background: var(--ink); color: var(--bg); border-radius: 22px; padding: 52px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; }
+.hire > * { position: relative; z-index: 1; min-width: 0; }
+.hire::before, .hire::after { content: ""; position: absolute; border-radius: 50%; filter: blur(60px); z-index: 0; }
+.hire::before { width: 340px; height: 340px; background: rgba(76, 201, 192, .32); top: -140px; right: -60px; animation: drift1 14s ease-in-out infinite alternate; }
+.hire::after { width: 300px; height: 300px; background: rgba(244, 184, 96, .22); bottom: -140px; left: -80px; animation: drift2 17s ease-in-out infinite alternate; }
+:root[data-theme="dark"] .hire { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hire { background: var(--surface); color: var(--ink); border: 1px solid var(--line); } }
+.hire .eyebrow { color: var(--accent); }
+:root:not([data-theme="dark"]) .hire .eyebrow { color: #4CC9C0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hire .eyebrow { color: var(--accent); } }
+.hire h2 { font-size: clamp(30px, 4.4vw, 50px); font-weight: 800; margin-block: 16px; letter-spacing: -.02em; }
+.hire p { opacity: .82; max-width: 46ch; }
+.roles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.roles span { padding: 6px 12px; border-radius: 999px; border: 1px solid currentColor; font-size: 13px; opacity: .88; transition: transform .15s, background .15s; }
+.roles span:hover { transform: translateY(-2px); background: rgba(128, 144, 160, .25); }
+.contact { display: grid; gap: 12px; align-content: center; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(128, 144, 160, .5); background: rgba(128, 144, 160, .12); min-width: 0; }
+.row div { min-width: 0; }
+.row small { display: block; font: 500 11px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+.row code { font: 500 15px var(--font-mono); overflow-wrap: anywhere; user-select: all; }
+.copy { flex: none; font: 600 13px var(--font-body); padding: 8px 13px; border-radius: 7px; border: 0; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+.copy:hover { filter: brightness(1.1); }
+:root:not([data-theme="dark"]) .hire .copy, :root:not([data-theme="dark"]) .hire .mailto { background: #4CC9C0; color: #05222A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hire .copy, :root:not([data-theme="light"]) .hire .mailto { background: var(--accent); color: var(--accent-ink); } }
+.mailto { display: block; text-align: center; text-decoration: none; padding: 15px; border-radius: 12px; background: var(--accent); color: var(--accent-ink); font-weight: 600; transition: transform .15s; }
+.mailto:hover { transform: translateY(-2px); }
+
+footer { padding-block: 44px 60px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; }
+
+.rv { transform: translateY(20px); opacity: .3; transition: transform .8s cubic-bezier(.2, .7, .2, 1), opacity .8s; transition-delay: var(--d, 0s); }
+.rv.in { transform: none; opacity: 1; }
+
+/* photo */
+.mark .av { width: 36px; height: 36px; flex: none; border-radius: 50%; background: var(--photo) 50% 16% / 170% auto no-repeat, var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+.who { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.avatar { position: relative; width: 80px; height: 80px; flex: none; }
+.avatar::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--accent), var(--accent2), var(--accent)); animation: spin 6s linear infinite; }
+.avatar i { position: absolute; inset: 4px; border-radius: 50%; border: 3px solid var(--bg); background: var(--photo) 50% 16% / 170% auto no-repeat, var(--surface); }
+.side { min-width: 0; }
+.portrait { position: relative; margin: 0 0 22px; max-width: 420px; aspect-ratio: 4 / 5; border-radius: 18px; background: var(--photo) 50% 0 / cover no-repeat, var(--surface); border: 1px solid var(--line); box-shadow: 0 24px 50px -28px rgba(13, 27, 42, .5); }
+.portrait figcaption { position: absolute; left: 12px; right: 12px; bottom: 12px; padding: 10px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; }
+.portrait figcaption b { font-family: var(--font-display); }
+.portrait figcaption span { color: var(--accent); font: 500 12px var(--font-mono); align-self: center; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes drift1 { to { transform: translate(90px, 60px) scale(1.15); } }
+@keyframes drift2 { to { transform: translate(-80px, -50px) scale(1.1); } }
+@keyframes pulse { 50% { opacity: .3; } }
+@keyframes ring { 0% { box-shadow: 0 0 0 0 var(--glow); } 70% { box-shadow: 0 0 0 10px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+@keyframes bob { to { transform: translateY(-10px); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes shine { to { left: 130%; } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes typeln { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes fadeup { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes fillring { from { stroke-dashoffset: 276.46; } to { stroke-dashoffset: 11.06; } }
+
+@media (max-width: 980px) {
+  .skill-grid { grid-template-columns: 1fr; }
+  .tool > p { min-height: 0; }
+  .duties { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .hero > .wrap, .about, .hire { grid-template-columns: 1fr; }
+  .hero > .wrap { gap: 44px; }
+  .stats .wrap { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .domain { grid-template-columns: 1fr; }
+  .hire { padding: 32px 22px; }
+  nav a:not(.cta) { display: none; }
+}
+@media (max-width: 520px) {
+  .hero { padding-block: 40px 56px; }
+  .duties { grid-template-columns: 1fr; }
+  .job { padding: 20px 18px; }
+  .timeline { padding-left: 26px; }
+  .job::before { left: -26px; }
+  .stat strong { font-size: 36px; }
+  .pstep b { font-size: 20px; }
+  .chipf.b, .chipf.c { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .rv { transform: none; opacity: 1; }
+  .ticker-track { width: auto; flex-wrap: wrap; }
+  .ticker-track .dup { display: none; }
+  .path::after { transform: none; }
+}
+</style>
+
+<header class="top" id="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Srikanth Rasanolla, home"><span class="av" role="img" aria-label="Photo of Srikanth Rasanolla"></span><span>Srikanth R.</span></a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a class="cta" href="#hire">Hire me</a>
+      <button class="theme" id="theme" type="button" aria-label="Switch light or dark theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="wrap">
+      <div>
+        <div class="who"><span class="avatar"><i role="img" aria-label="Photo of Srikanth Rasanolla"></i></span><span class="hello"><i></i>BFSI · Insurance · Compliance</span></div>
+        <h1>I keep <span class="swap grad" id="swap">claims</span> accurate and compliant.</h1>
+        <p class="role">Senior Process Associate · AML/KYC · SME · Hyderabad, India</p>
+        <p class="lede">MBA Finance professional with 5+ years across insurance, banking and compliance. I settle claims, validate documents, audit quality and train teams, and I use SQL, Power BI and Python to make the numbers easier to trust.</p>
+        <div class="btns">
+          <a class="btn primary" href="#hire">Hire me</a>
+          <a class="btn" href="#experience">See experience</a>
+        </div>
+        <div class="mini"><span>Maker-checker</span><span>Quality audits</span><span>SME and trainer</span></div>
+      </div>
+
+      <div class="case-wrap">
+        <span class="chipf a"><b>AML</b> ✓</span>
+        <span class="chipf b"><b>KYC</b> ✓</span>
+        <span class="chipf c">SQL</span>
+        <span class="chipf d">Power BI</span>
+        <span class="chipf e">Python</span>
+        <aside class="case" aria-label="Animated example of a claim moving through maker-checker review">
+          <div class="case-head"><span>Maker-checker flow</span><span class="live">Live</span></div>
+          <div class="case-id" id="caseId">BRV-20418</div>
+          <p class="case-sub">Example case, bereavement claim</p>
+          <div class="meter"><i id="meter"></i></div>
+          <ol class="stages" id="stages">
+            <li class="done"><span>Documents received</span><span class="t">done</span></li>
+            <li class="done"><span>Death certificate and probate validated</span><span class="t">done</span></li>
+            <li class="now"><span>AML / KYC screening</span><span class="t"></span></li>
+            <li><span>Maker entry</span><span class="t"></span></li>
+            <li><span>Checker approval</span><span class="t"></span></li>
+            <li><span>Payment settled</span><span class="t"></span></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="hl">SQL</span><span>Claims Processing</span><span class="hl">Power BI</span><span>AML / KYC</span><span class="hl">Python</span><span>Maker-Checker</span><span>Internal Quality Audit</span><span>Document Validation</span><span>Annuities</span><span>Customer Onboarding</span>
+      <span class="hl dup">SQL</span><span class="dup">Claims Processing</span><span class="hl dup">Power BI</span><span class="dup">AML / KYC</span><span class="hl dup">Python</span><span class="dup">Maker-Checker</span><span class="dup">Internal Quality Audit</span><span class="dup">Document Validation</span><span class="dup">Annuities</span><span class="dup">Customer Onboarding</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat rv"><strong><span data-count="5">5</span>+</strong><span>Years in BFSI operations</span></div>
+      <div class="stat rv" style="--d:.1s"><strong data-count="3">3</strong><span>Organisations: TCS, Optum, Genpact</span></div>
+      <div class="stat rv" style="--d:.2s"><strong>MBA</strong><span>Finance, Osmania University</span></div>
+      <div class="stat rv" style="--d:.3s"><strong data-count="3">3</strong><span>Languages: English, Hindi, Telugu</span></div>
+    </div>
+  </div>
+
+  <section class="block wrap" id="about">
+    <div class="sec-head rv"><p class="eyebrow">About</p><h2>Careful with money, documents and people.</h2></div>
+    <div class="about">
+      <div class="rv">
+        <p>I work in the part of financial services where a small mistake becomes a customer's problem: settling annuity death claims, checking probate papers, and making sure every payment passes the right controls.</p>
+        <p>At TCS I handle the Overseas Annuities bereavement portfolio. Before that I assessed insurance claims and refunds at Optum and managed US banking accounts at Genpact.</p>
+        <p>I enjoy turning repeat errors into process fixes, and I am adding SQL, Power BI and Python to that work so quality and productivity can be measured, not guessed.</p>
+      </div>
+      <div class="side rv" style="--d:.1s"><figure class="portrait" role="img" aria-label="Portrait of Srikanth Rasanolla"><figcaption><b>Srikanth Rasanolla</b><span>Senior Process Associate</span></figcaption></figure><dl class="facts">
+        <div><dt>Current role</dt><dd>Senior Process Associate</dd></div>
+        <div><dt>Company</dt><dd>Tata Consultancy Services</dd></div>
+        <div><dt>Focus</dt><dd>Annuities, bereavement claims</dd></div>
+        <div><dt>Education</dt><dd>MBA Finance, 2021</dd></div>
+        <div><dt>Location</dt><dd>Hyderabad, India</dd></div>
+      </dl></div>
+    </div>
+    <div class="duties">
+      <div class="duty spot rv"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Financial crime prevention</h3><p>FCPC and Breach Coordinator for AML, KYC and data protection.</p></div>
+      <div class="duty spot rv" style="--d:.08s"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div><h3>Quality analysis</h3><p>Peer reviews and audits of death claims, annuity and survivor benefit cases.</p></div>
+      <div class="duty spot rv" style="--d:.16s"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M18 14.5c1.8.8 3 2.6 3 5.5"/></svg></div><h3>SME and trainer</h3><p>Process guidance and refreshers on workflows, compliance and risk.</p></div>
+      <div class="duty spot rv" style="--d:.24s"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></div><h3>Maker-checker controls</h3><p>Audit records and dual-control checks that meet regulatory standards.</p></div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="skills">
+    <div class="sec-head rv"><p class="eyebrow">Skills</p><h2>Domain depth, plus the data tools to prove it.</h2></div>
+    <div class="skill-grid">
+
+      <article class="tool spot rv">
+        <div class="tool-top"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><h3>SQL</h3></div>
+        <p>Query and reconcile claims, payment and customer records.</p>
+        <div class="demo" data-play>
+          <div class="demo-top"><i></i><i></i><i></i><span>query.sql</span><button type="button" class="replay">Replay</button></div>
+          <div class="demo-body">
+            <span class="ln" style="--i:0"><span class="k">SELECT</span> claim_type,</span>
+            <span class="ln" style="--i:1">       <span class="f">COUNT</span>(*) <span class="k">AS</span> cases,</span>
+            <span class="ln" style="--i:2">       <span class="f">AVG</span>(tat) <span class="k">AS</span> avg_days</span>
+            <span class="ln" style="--i:3"><span class="k">FROM</span> claims</span>
+            <span class="ln" style="--i:4"><span class="k">WHERE</span> status = <span class="s">'Settled'</span></span>
+            <span class="ln" style="--i:5"><span class="k">GROUP BY</span> claim_type;</span>
+            <div class="tbl out" style="--t:4.7">
+              <div><span>claim_type</span><span>cases</span><span>avg_days</span></div>
+              <div><span>Death claim</span><span>128</span><span>2.4</span></div>
+              <div><span>Survivor benefit</span><span>74</span><span>3.1</span></div>
+              <div><span>Refund</span><span>52</span><span>1.8</span></div>
+            </div>
+            <p class="note out" style="--t:5.1">Sample rows for illustration.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tool spot rv" style="--d:.1s">
+        <div class="tool-top"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M22 20H2"/></svg></div><h3>Power BI</h3></div>
+        <p>Dashboards for quality scores, turnaround and error trends.</p>
+        <div class="demo" data-play>
+          <div class="demo-top"><i></i><i></i><i></i><span>quality dashboard</span><button type="button" class="replay">Replay</button></div>
+          <div class="demo-body">
+            <div class="kpi">
+              <svg viewBox="0 0 110 110" aria-hidden="true"><circle class="track" cx="55" cy="55" r="44" fill="none" stroke-width="10"/><circle class="val" cx="55" cy="55" r="44" fill="none" stroke-width="10" stroke-linecap="round"/></svg>
+              <div><strong><span data-count="96" data-play-count>96</span>%</strong><span>QC pass rate, last 6 months</span></div>
+            </div>
+            <div class="bars">
+              <div class="bar" style="--h:74px;--k:0"></div><div class="bar" style="--h:84px;--k:1"></div><div class="bar" style="--h:79px;--k:2"></div>
+              <div class="bar" style="--h:94px;--k:3"></div><div class="bar" style="--h:101px;--k:4"></div><div class="bar hi" style="--h:109px;--k:5"></div>
+            </div>
+            <div class="months"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div>
+            <p class="note">Sample data for illustration.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tool spot rv" style="--d:.2s">
+        <div class="tool-top"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div><h3>Python</h3></div>
+        <p>Automate repeat checks, clean data and build quick reports.</p>
+        <div class="demo" data-play>
+          <div class="demo-top"><i></i><i></i><i></i><span>quality_check.py</span><button type="button" class="replay">Replay</button></div>
+          <div class="demo-body">
+            <span class="ln" style="--i:0"><span class="k">import</span> pandas <span class="k">as</span> pd</span>
+            <span class="ln" style="--i:1"> </span>
+            <span class="ln" style="--i:2">df = pd.<span class="f">read_csv</span>(<span class="s">"claims.csv"</span>)</span>
+            <span class="ln" style="--i:3">fails = df[df.qc == <span class="s">"Fail"</span>]</span>
+            <span class="ln" style="--i:4"><span class="f">print</span>(fails.<span class="f">groupby</span>(<span class="s">"error"</span>).<span class="f">size</span>())</span>
+            <div class="out" style="--t:3.7">
+              <span class="ln pipe">error</span>
+              <span class="ln pipe">missing_doc     6</span>
+              <span class="ln pipe">wrong_amount    3</span>
+              <span class="ln pipe">dtype: int64 <span class="caret"></span></span>
+            </div>
+            <p class="note out" style="--t:4.1">Sample output for illustration.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="domain rv">
+      <h3>Operations</h3>
+      <div class="chips"><span class="chip">BFSI Operations</span><span class="chip">Insurance Operations</span><span class="chip">Claims Processing</span><span class="chip">Banking Operations</span><span class="chip">Customer Onboarding</span></div>
+    </div>
+    <div class="domain rv">
+      <h3>Risk &amp; compliance</h3>
+      <div class="chips"><span class="chip">AML / KYC</span><span class="chip">Document Validation</span><span class="chip">Maker-Checker</span><span class="chip">Internal Quality Audit</span><span class="chip">Risk &amp; Compliance</span><span class="chip">Data Protection</span></div>
+    </div>
+    <div class="domain rv">
+      <h3>People &amp; process</h3>
+      <div class="chips"><span class="chip">SME / Trainer</span><span class="chip">Stakeholder Management</span><span class="chip">Process Improvement</span><span class="chip">Team Handling</span><span class="chip">Financial Analysis</span><span class="chip">MS Office</span></div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="experience">
+    <div class="sec-head rv"><p class="eyebrow">Experience</p><h2>Five-plus years, three organisations.</h2></div>
+
+    <div class="path rv" id="path">
+      <div class="pstep"><b>2020</b><span>Genpact</span><i>Process Associate</i></div>
+      <div class="pstep"><b>2021</b><span>Optum</span><i>Senior Process Associate</i></div>
+      <div class="pstep"><b>2022</b><span>TCS</span><i>Senior Process Associate</i></div>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <div class="progress" id="progress"></div>
+
+      <article class="job now spot rv">
+        <div class="job-top">
+          <div><h3>Senior Process Associate</h3><p class="org">Tata Consultancy Services (TCS)</p></div>
+          <span class="when">Oct 2022 – Present</span>
+        </div>
+        <ul>
+          <li>Run end-to-end financial processes in the Overseas Annuities bereavement portfolio, with accurate, compliant claim settlements.</li>
+          <li>Review death certificates, probate documents and beneficiary details to confirm entitlement before payment.</li>
+          <li>Serve as Financial Crime Prevention Coordinator and Breach Coordinator for AML, KYC and data protection requirements.</li>
+          <li>Act as SME for annuities and bereavement operations, guiding team members on process questions.</li>
+          <li>Work as Internal Quality Analyst: peer reviews and quality audits of death claims, annuity and survivor benefit cases.</li>
+          <li>Keep audit records, apply maker-checker controls, and deliver training on workflows, compliance and risk awareness.</li>
+          <li>Resolve customer and process queries during system transitions to keep onboarding and the business running.</li>
+          <li>Lead improvement work aimed at fewer errors, fewer complaints and better efficiency.</li>
+        </ul>
+      </article>
+
+      <article class="job spot rv">
+        <div class="job-top">
+          <div><h3>Senior Process Associate</h3><p class="org">Optum</p></div>
+          <span class="when">Nov 2021 – Oct 2022</span>
+        </div>
+        <ul>
+          <li>Assessed insurance claims for validity and accuracy under applicable laws, regulations and company policy.</li>
+          <li>Processed refunds for overpaid claims with accurate calculations and timely payment.</li>
+          <li>Worked with underwriting, customer service and legal teams to resolve complex claims issues.</li>
+          <li>Met productivity, quality and customer satisfaction targets on high-volume workloads.</li>
+        </ul>
+      </article>
+
+      <article class="job spot rv">
+        <div class="job-top">
+          <div><h3>Process Associate</h3><p class="org">Genpact</p></div>
+          <span class="when">Feb 2020 – Nov 2021</span>
+        </div>
+        <ul>
+          <li>Managed accounts and financial records for a US banking client with accurate, timely processing.</li>
+          <li>Kept financial data and records current and in line with process requirements.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="edu rv">
+      <strong>MBA / PGDM, Finance</strong>
+      <span>Osmania University · 2021</span>
+    </div>
+  </section>
+
+  <section class="block wrap" id="hire" style="padding-bottom: 20px">
+    <div class="hire rv">
+      <div>
+        <p class="eyebrow">Hire me</p>
+        <h2>Need someone who gets the controls right?</h2>
+        <p>I am a fit for BFSI and insurance operations, claims, AML/KYC, quality audit and SME or trainer roles, and for operations roles that lean on SQL, Power BI and Python.</p>
+        <div class="roles"><span>Claims &amp; annuities</span><span>AML / KYC</span><span>Quality audit</span><span>SME / Trainer</span><span>Ops analytics</span></div>
+      </div>
+      <div class="contact">
+        <div class="row"><div><small>Email</small><code id="mail">rasanollasrikanth@gmail.com</code></div><button class="copy" type="button" data-target="mail">Copy</button></div>
+        <div class="row"><div><small>Phone</small><code id="tel">+91 7386475747</code></div><button class="copy" type="button" data-target="tel">Copy</button></div>
+        <a class="mailto" href="mailto:rasanollasrikanth@gmail.com">Send an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>Srikanth Rasanolla · Hyderabad, India</span><span>Senior Process Associate, TCS</span></div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root = document.documentElement;
+
+  /* theme toggle */
+  document.getElementById("theme").addEventListener("click", function () {
+    var cur = root.getAttribute("data-theme");
+    var dark = cur ? cur === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme", dark ? "light" : "dark");
+  });
+
+  /* scroll progress bar + timeline line */
+  var bar = document.getElementById("topbar");
+  var tl = document.getElementById("timeline"), pr = document.getElementById("progress");
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.setProperty("--p", h > 0 ? Math.min(window.scrollY / h, 1).toFixed(3) : 0);
+    var r = tl.getBoundingClientRect(), vh = window.innerHeight;
+    var p = Math.min(Math.max((vh * 0.6 - r.top) / r.height, 0), 1);
+    pr.style.height = "calc((100% - 16px) * " + p.toFixed(3) + ")";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true }); window.addEventListener("resize", onScroll); onScroll();
+
+  /* rotating headline word */
+  var words = ["claims", "AML checks", "quality audits", "financial data"];
+  var swap = document.getElementById("swap"), wi = 0;
+  if (!reduce) setInterval(function () {
+    swap.classList.add("out");
+    setTimeout(function () { wi = (wi + 1) % words.length; swap.textContent = words[wi]; swap.classList.remove("out"); }, 260);
+  }, 2600);
+
+  /* maker-checker pipeline loop */
+  var items = Array.prototype.slice.call(document.querySelectorAll("#stages li"));
+  var caseId = document.getElementById("caseId"), meter = document.getElementById("meter"), n = 20418, step = 2;
+  function render() {
+    items.forEach(function (li, i) {
+      li.className = i < step ? "done" : i === step ? "now" : "";
+      li.lastElementChild.textContent = i < step ? (i === items.length - 1 ? "paid" : "done") : "";
+    });
+    meter.style.width = Math.round(Math.min(step + 1, items.length) / items.length * 100) + "%";
+  }
+  render();
+  if (!reduce) setInterval(function () {
+    step++;
+    if (step > items.length) { step = 0; n += 7; caseId.textContent = "BRV-" + n; }
+    render();
+  }, 1300);
+
+  /* count-up numbers */
+  function countUp(el) {
+    var to = parseInt(el.getAttribute("data-count"), 10), t0 = null;
+    if (reduce || isNaN(to)) return;
+    function f(t) {
+      if (!t0) t0 = t;
+      var k = Math.min((t - t0) / 1200, 1);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(f);
+    }
+    el.textContent = "0"; requestAnimationFrame(f);
+  }
+
+  /* demo panels: play on view, replay on click */
+  function play(demo) {
+    demo.classList.remove("play");
+    void demo.offsetWidth;
+    demo.classList.add("play");
+    demo.querySelectorAll("[data-count]").forEach(countUp);
+  }
+  document.querySelectorAll(".replay").forEach(function (b) {
+    b.addEventListener("click", function () { play(b.closest(".demo")); });
+  });
+
+  /* scroll reveal */
+  var rv = document.querySelectorAll(".rv");
+  function reveal(el) {
+    el.classList.add("in");
+    if (el.classList.contains("stat")) el.querySelectorAll("[data-count]").forEach(countUp);
+    if (el.hasAttribute("data-count")) countUp(el);
+    el.querySelectorAll(".demo").forEach(function (d) { play(d); });
+  }
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    rv.forEach(function (el) { io.observe(el); });
+  } else { rv.forEach(function (el) { el.classList.add("in"); }); }
+
+  /* spotlight follows the pointer */
+  document.querySelectorAll(".spot").forEach(function (c) {
+    c.addEventListener("pointermove", function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      c.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
+  });
+
+  /* copy buttons */
+  document.querySelectorAll(".copy").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var el = document.getElementById(b.getAttribute("data-target"));
+      function done() { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1600); }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected";
+        setTimeout(function () { b.textContent = "Copy"; }, 1600);
+      }
+      try { navigator.clipboard.writeText(el.textContent).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+</html>
