@@ -319,14 +319,14 @@ nav a:not(.cta):hover::after { right: 0; }
 
 
 /* photo */
-.portrait, .mark .av, .avatar i { --photo: url("assets/profile.png"); }
+.portrait, .mark .av, .avatar i { --photo: url("assets/profile-high-resolution.jpg"); }
 .mark .av { width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--photo) 50% 16% / 170% auto no-repeat, var(--surface); box-shadow: 0 0 0 2px var(--accent); }
 .who { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .avatar { position: relative; width: 112px; height: 112px; flex: none; }
 .avatar::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--accent), var(--accent2), var(--accent)); animation: spin 20s linear infinite; }
-.avatar i { position: absolute; inset: 4px; border-radius: 50%; border: 3px solid var(--bg); background: url("assets/profile.png") 50% 20% / 155% auto no-repeat, var(--surface); box-shadow: inset 0 0 24px rgba(10,24,38,.12); }
+.avatar i { position: absolute; inset: 4px; border-radius: 50%; border: 3px solid var(--bg); background: url("assets/profile-high-resolution.jpg") 50% 20% / 155% auto no-repeat, var(--surface); box-shadow: inset 0 0 24px rgba(10,24,38,.12); }
 .side { min-width: 0; }
-.portrait { position: relative; margin: 0 0 22px; max-width: 420px; aspect-ratio: 4 / 5; border-radius: 18px; background: url("assets/profile.png") 50% 18% / cover no-repeat, var(--surface); border: 1px solid var(--line); box-shadow: 0 24px 50px -28px rgba(13, 27, 42, .5), 0 0 0 8px var(--surface); overflow: hidden; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.portrait { position: relative; margin: 0 0 22px; max-width: 420px; aspect-ratio: 4 / 5; border-radius: 18px; background: url("assets/profile-high-resolution.jpg") 50% 18% / cover no-repeat, var(--surface); border: 1px solid var(--line); box-shadow: 0 24px 50px -28px rgba(13, 27, 42, .5), 0 0 0 8px var(--surface); overflow: hidden; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
 .portrait:hover { transform: translateY(-6px); box-shadow: 0 32px 60px -26px rgba(13, 27, 42, .58), 0 0 0 8px var(--surface); }
 .portrait::before { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(255,255,255,.14), transparent 38%, rgba(8,30,48,.12)); pointer-events: none; }
 .portrait::after { content: ""; position: absolute; width: 180px; height: 180px; top: -110px; right: -110px; border: 28px solid rgba(255,255,255,.12); border-radius: 50%; pointer-events: none; }
